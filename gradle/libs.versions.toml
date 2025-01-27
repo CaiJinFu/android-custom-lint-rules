@@ -18,6 +18,7 @@ kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", versio
 lint-api = [
     "kotlin-stdlib",
     "lint-api",
+    "lint-checks"
     # You typically don't need this one, but it does have some utilities
     # like the API database that some lint checks may want to use
     #"lint-checks",

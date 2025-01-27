@@ -20,15 +20,21 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     lint {
+        checkReleaseBuilds = true
+        checkAllWarnings = true
         checkDependencies = true
         // Produce report for CI:
         // https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
         sarifOutput = file("../lint-results.sarif")
         textReport = true
+        textOutput = file("../stdout.txt")
     }
+
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(files("libs/library-debug.aar"))
 //    implementation(project(":library"))
-    lintChecks(project(":checks"))
+//    lintChecks(project(":checks"))
 }
